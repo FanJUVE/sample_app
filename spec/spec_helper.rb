@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'spork'
+
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
 
@@ -55,7 +56,9 @@ require 'rspec/autorun'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
-Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+Dir[Rails.root.join("spec/support/**/*.rb")].each do |f|
+  require f
+end
 
 RSpec.configure do |config|
   # ## Mock Framework
@@ -84,13 +87,4 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
-end
-
-def full_title(page_title)
-  base_title = "Ruby on Rails Tutorial Sample App"
-  if page_title.empty?
-    base_title
-  else
-    "#{base_title} | #{page_title}"
-  end
 end
